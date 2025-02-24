@@ -1,0 +1,217 @@
+.home-container, .voucher-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  .header {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81') center/cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+.second-head, .first-head{
+  margin-left: 10%;
+}
+  
+  .about-us, .voucher-content {
+    text-align: justify;
+    margin-bottom: 40px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .image-center {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .center-image {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .info-blocks {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  
+  .info-block {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 0 10px;
+    background-color: white;
+  }
+  
+  .info-block h3 {
+    color: #f39c12; /* Złoty kolor dla nagłówków */
+  }
+  
+  @media (max-width: 768px) {
+    .info-blocks {
+      flex-direction: column;
+    }
+    .info-block {
+      margin-bottom: 20px;
+    }
+  }
+  
+
+  .elementor-divider {
+    text-align: left;
+    width: 5%;
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 10%;
+  }
+
+  .elementor-text{
+ 
+    display: flex;
+    margin-left: 15%;
+    font-size: 16px;
+  }
+  .google-img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .rating-container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* wycentrowanie poziome */
+    align-items: center;     /* wycentrowanie pionowe */
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    color: #ffd700;
+  }
+  .partial-star {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+  }
+  .star-empty {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .star-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    direction: ltr;
+  }
+
+  :host ::ng-deep .p-rating .p-icon {
+    color: #ffd700 !important; /* Kolor jak w mat-icon */
+  }
+  :host ::ng-deep .p-rating .pi {
+    color: #ffd700 !important; /* Zmiana koloru gwiazdek */
+  }
+  .p-rating .p-icon {
+    color: #ffd700 !important; /* Pełne gwiazdki */
+  }
+  
+  .p-rating .pi-star-o {
+    color: #ccc !important; /* Puste gwiazdki */
+  }
+
+  .opinion-container{
+    background-color: #f9f9f9;
+  }
+
+  .opinion-container-content{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+.info-separator{
+  font-family: 'Marcellus SC',Georgia,"Times New Roman",serif;
+  padding: 50px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.h1-css{
+  font-size: 26px;
+  padding-bottom: 10px;
+  line-height: 1em;
+  font-weight: 500;
+  color: #b7804a;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+
+}    .gallery-item {
+  margin: 30px 30px;
+  cursor: pointer;
+  transition: transform 300ms linear;
+
+}
+
+.gallery-item:hover {
+  transform: scale(1.1); /* Przybliżenie */
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
+  border-radius: 2px;
+}
+.image-title {
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  
+  font-family: 'Marcellus SC',Georgia,"Times New Roman",serif;
+  color: #b7804a;
+  font-weight: 500;
+}
+.voucher-img{
+  height: auto;
+  max-width: 100%;
+}
+.voucher-content{
+  
+  font-family: 'Marcellus SC',Georgia,"Times New Roman",serif;
+
+}
+.voucher-content-text{
+color: 777;
+text-align: justify;
+margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr; /* Ustawienie jednej kolumny */
+  }
+}

@@ -1,0 +1,182 @@
+<div class="header">
+  <div class="elementor-divider">
+    <span class="elementor-divider-separator">
+    </span>
+  </div>
+    <div class="elementor-text">FOTOGRAF WŁOCŁAWEK</div>
+
+  <h3 class="first-head">Joanna Łuczak</h3>
+  <h1  class="second-head">PHOTOGRAPHY</h1>
+</div>
+<section class="info-separator">
+  
+  <img src="separator-small.png" alt="Nasze zdjęcie" class="center-image">
+  <h1 class="h1-css">NATURALNA, KREATYWNA I PIĘKNA FOTOGRAFIA</h1>
+</section>
+<div class="home-container">
+
+
+    <!-- Sekcja O nas -->
+    <section class="about-us">
+      <div class="card gallery-container">
+        <div class="gallery">
+          <div class="gallery-item" *ngFor="let image of images; let i = index">
+            <img [src]="image.itemImageSrc" [alt]="image.alt" [title]="image.title">
+            <p class="image-title">{{ image.title }}</p>
+          </div>
+        </div>
+      </div>
+      
+    
+    </section>
+
+
+    <!-- Bloki informacyjne -->
+    <section class="info-blocks">
+      <div class="info-block">
+        <h3>Czym się zajmujemy</h3>
+        <p>Specjalizujemy się w tworzeniu aplikacji internetowych, rozwoju oprogramowania oraz projektowaniu interfejsów użytkownika. Zawsze stawiamy na nowoczesne technologie i wydajność.</p>
+      </div>
+      <div class="info-block">
+        <h3>Co nas wyróżnia</h3>
+        <p>Naszą siłą jest indywidualne podejście do każdego projektu. Dbałość o detale, terminowość i zadowolenie klienta to nasze priorytety.</p>
+      </div>
+      <div class="info-block">
+        <h3>Coś od nas</h3>
+        <p>Nasze motto to "Tworzymy rozwiązania, które zmieniają rzeczywistość". Zawsze staramy się wyjść poza schematy i dostarczyć coś wyjątkowego.</p>
+      </div>
+    </section>
+    <p-progress-spinner  *ngIf="loading"></p-progress-spinner>
+    
+  </div>
+  <div class="opinion-container">
+    <section class='opinion-container-content' *ngIf="!loading">
+      <div class="grid" >
+        <!-- Lewa sekcja -->
+        <div class="col-12 md:col-3">
+            <p style="text-align: center; font-size: 28px; margin-bottom: 0px;">Doskonała</p>
+            <div class="rating-container">
+
+              <div class="rating">
+                <!-- Pełne gwiazdki -->
+                <ng-container *ngFor="let star of fullStarsArray">
+                  <mat-icon>star</mat-icon>
+                </ng-container>
+          
+                <!-- Ułamkowa gwiazdka -->
+                <div class="partial-star" *ngIf="fractionalPart > 0">
+                  <mat-icon class="star-empty">star_border</mat-icon>
+                  <mat-icon class="star-filled" [ngStyle]="{'width': fractionalPart * 100 + '%'}">star</mat-icon>
+                </div>
+          
+                <!-- Puste gwiazdki -->
+                <ng-container *ngFor="let star of emptyStarsArray">
+                  <mat-icon>star_border</mat-icon>
+                </ng-container>
+              </div>
+             <!-- <p-rating 
+                [ngModel]="fullStars" 
+                [readonly]="true" 
+                [stars]="5"
+                class="full-stars">
+              </p-rating>
+            
+              <p-rating 
+                *ngIf="hasHalfStar" 
+                [ngModel]="fullStars + 1"
+                [readonly]="true" 
+                [stars]="5"
+                class="half-stars">
+              </p-rating>-->
+
+
+            </div>
+            
+            
+            <p style="text-align: center; font-size: 10px;">Na podstawie <b> {{this.reviews.length}} opinii</b></p>
+           
+            <img class="google-img" src="https://cdn.trustindex.io/assets/platform/Google/logo.svg" width="150" height="25" alt="Google">
+          </div>
+      
+        <!-- Prawa sekcja -->
+        <div class="col-12 md:col-9">
+            <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [circular]="false" [autoplayInterval]="2000">
+              <ng-template let-opinion pTemplate="opinion">
+                <p-card *ngIf="opinion" [style]="{ 
+                  overflow: 'hidden', 
+                  position: 'relative', 
+                  height: '15rem',
+                  padding:'5px',
+                  margin:'10px',
+                  'border-radius': '2px',
+                  'box-shadow': '1px 1px 7px 0px rgba(0, 0, 0, 0.13), 0px 0px 2px 0px rgba(0, 0, 0, 0.05)'
+                }">
+                  <ng-template #title>
+                    <span>{{ opinion.author_name }}</span>
+                    <img src="https://cdn.trustindex.io/assets/platform/Google/icon.svg"
+                         style="position: absolute; right: 20px"
+                         width="20" height="20">
+                  </ng-template>
+                  <ng-template #subtitle>
+                    {{ convertUnixTimeToDate(opinion.time) }}
+                    <p-rating [ngModel]="opinion.rating" [readonly]="true"></p-rating>
+                  </ng-template>
+                  <p>{{ opinion.text }}</p>
+                </p-card>
+                
+              </ng-template>
+          </p-carousel>
+        </div>
+      </div>
+      
+
+
+      
+
+</section>
+  </div>
+  <section class="info-separator">
+  
+    <img src="separator-small.png" alt="Nasze zdjęcie" class="center-image">
+    <h1 class="h1-css">WSPOMNIEŃ CZAR</h1>
+  </section>
+  <div class="voucher-container">
+
+
+    <!-- Sekcja O nas -->
+    <section class="voucher-content">
+
+      <div class="grid" >
+        <!-- Lewa sekcja -->
+        <div class="col-12 md:col-9">
+          <h1 style="text-align: center;  font-weight: 500; text-transform:uppercase; font-size: 22px;  color: #b7804a;"> Niesamowite wspomnienia,<br>
+            wyjątkowe chwile<br>
+            zatrzymam dla Ciebie<br>
+            w formie bezcennej pamiątki!</h1>
+
+            <div class="voucher-content-text">
+              <p>Form w jakich przekazuję fotografie jest wiele. W odpowiedzi na Twoje potrzeby realizuję zamówienia na odbitki,  fotoalbumy, fotoobrazy i inne.</p>
+
+              <p> Fotografie przekazuję w wersji elektronicznej, w wysokiej rozdzielczości  do druku oraz pomniejszone do prezentacji w internecie.  Klient otrzymuje również wersję elektroniczną zakupionych ujęć, które może pobrać za pośrednictwem interneru.</p>
+                
+              <p> Odbitki w ustalonych rozmiarach i ilości pakuję do pięknych, ręcznie przygotowanych pudełek czy etui.</p>
+                
+              <p>  Dokładam wszelkiej staranności aby wszystkie produkty wykonane były z największą starannością i w najlepszej dostępnej na rynku jakości.</p>
+            </div>
+          </div>
+        
+          <div class="col-12 md:col-3">
+            <img class="voucher-img" src="https://pastelovefoto.pl/wp-content/uploads/2024/07/pinkbox4of10.jpg" alt="" title="pinkbox4of10">
+            </div>
+        </div>
+     
+      </section>
+      </div>
+      <section class="info-separator">
+  
+        <img src="separator-small.png" alt="Nasze zdjęcie" class="center-image">
+        <h1 class="h1-css">INSTAGRAM</h1>
+      </section>
+  <div class="instagram-gallery">
+    <!--app-instagram-gallery></app-instagram-gallery>-->
+  </div>

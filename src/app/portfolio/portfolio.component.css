@@ -1,0 +1,118 @@
+/* Kontener galerii - centrowanie */
+.gallery-container {
+    display: flex;
+    justify-content: center;  /* Centrowanie w poziomie */
+    align-items: center;      /* Centrowanie w pionie */
+    height: 100vh;            /* Wysokość na cały ekran */
+    text-align: center;       /* Wyrównanie zawartości */
+    margin-top: 150px;
+}
+
+/* Obrazki w galerii */
+.gallery-image {
+    width: 100%;
+    display: block;
+    margin: auto;             /* Zapewnia dodatkowe centrowanie */
+}
+
+/* Miniaturki */
+.gallery-thumbnail {
+    display: block;
+    margin: auto;
+}
+::ng-deep .p-lightbox .p-lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+  
+
+  .image-modal .p-dialog-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Usunięcie dodatkowego paddingu */
+}
+
+.image-container {
+    width: 100%;
+    max-height: 80vh; /* Maksymalna wysokość modala */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 80vh; /* Ograniczenie wysokości do 80% ekranu */
+    object-fit: contain; /* Zachowanie proporcji bez przycinania */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
+    margin: 0 auto;
+    padding: 0;
+    gap: 0; /* brak odstępów między elementami */
+    max-width: 1200px
+
+  }    .gallery-item {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Stylizacja overlay (pełnoekranowy lightbox) */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.9); /* szare tło */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .overlay-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+  }
+  .overlay-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .nav-btn {
+    background: transparent;
+    border: none;
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    z-index: 1001;
+  }
+  .prev {
+    margin-right: 20px;
+  }
+  .next {
+    margin-left: 20px;
+  }

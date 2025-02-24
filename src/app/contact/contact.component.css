@@ -1,0 +1,23 @@
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+    margin-top: 80px;
+}
+
+.contact-form, .contact-map {
+    width: 45%;
+    min-width: 300px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.p-field {
+    margin-bottom: 15px;
+}

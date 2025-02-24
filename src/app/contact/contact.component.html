@@ -1,0 +1,75 @@
+<div class="contact-container">
+
+    <!-- Formularz kontaktowy -->
+    <div class="contact-form">
+      <h2>Dane kontaktowe</h2>
+  
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="name"><span class="pi pi-user"></span> Imię i nazwisko</label>
+          <span id="name" placeholder="Imię i nazwisko">: <b>{{contact.name}}</b></span>
+        </div>
+  
+        <div class="p-field">
+          <label for="email"><span class="pi pi-at"></span> E-mail</label>
+          <span id="email" placeholder="e-mail">: <b>{{contact.email}}</b></span>
+        </div>
+
+        <div class="p-field">
+            <label for="phone"><span class="pi pi-phone"></span> Telefon</label>
+            <span id="phone" placeholder="phone">: <b>{{contact.phone}}</b></span>
+          </div>
+      </div>
+
+      <div *ngIf="openingHours">
+        <h3>Godziny otwarcia:</h3>
+        <ul>
+          <li *ngFor="let day of openingHours.weekday_text">{{ day }}</li>
+        </ul>
+      
+        <h4>Aktualny status: {{ getStatus() }}</h4>
+      </div>
+      
+    </div>
+  
+    <!-- Google Maps -->
+    <div class="contact-map">
+      <h2>Lokalizacja </h2>
+      <google-map 
+      height="500px"
+      width="100%"
+      [zoom]="zoom"
+      [center]="location ? { lat: location.lat, lng: location.lng } : { lat: 0, lng: 0 }"
+      [options]="options">
+      
+      <map-marker
+        *ngIf="location" 
+        [position]="{ lat: location.lat, lng: location.lng }">
+      </map-marker>
+    </google-map>
+    
+  
+       
+    </div>
+
+    <p-card header="Kontakt">
+      <form (ngSubmit)="sendEmail()" #contactForm="ngForm">
+        <div class="p-field">
+          <label for="name">Imię i nazwisko</label>
+          <input id="name" type="text" pInputText [(ngModel)]="contactFormula.name" name="name" required />
+        </div>
+        <div class="p-field">
+          <label for="email">Email</label>
+          <input id="email" type="email" pInputText [(ngModel)]="contactFormula.email" name="email" required email />
+        </div>
+        <div class="p-field">
+          <label for="message">Wiadomość</label>
+          <textarea id="message" pInputTextarea [(ngModel)]="contactFormula.message" name="message" rows="5" required></textarea>
+        </div>
+        <p-button label="Wyślij" icon="pi pi-envelope" type="submit" [disabled]="!contactForm.form.valid"></p-button>
+      </form>
+    </p-card>
+    
+  
+  </div>
+  

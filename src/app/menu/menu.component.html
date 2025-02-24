@@ -1,0 +1,34 @@
+<div class="menu-container">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />  <!-- Zamień na swoje logo -->
+    </div>
+    <div class="social">
+      <span class="pi pi-facebook pi-social"></span>
+      <span class="pi pi-instagram pi-social"></span>
+      <span class="pi pi-tiktok pi-social"></span>
+      <span class="pi pi-phone pi-social"></span>
+    </div>
+   
+    <p-menubar [model]="items" class="right-menu" [autoDisplay]="true" [breakpoint]="'1020px'">
+      <ng-template let-item pTemplate="item">
+          <a *ngIf="item.routerLink" 
+             [routerLink]="item.routerLink" 
+             routerLinkActive="active-menu-item" 
+             [routerLinkActiveOptions]="{ exact: true }"
+             class="p-menuitem-link">
+              <i *ngIf="item.icon" [class]="item.icon"></i>
+          </a>
+          <span *ngIf="!item.routerLink" class="p-menuitem-label">
+              <i *ngIf="item.icon" [class]="item.icon"></i>
+              <span>{{ item.label }}</span>
+          </span>
+      </ng-template>
+    </p-menubar>
+    
+  
+  
+  
+
+  
+  </div>
+  

@@ -1,0 +1,21 @@
+.instagram-gallery .grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 8 kolumn */
+    grid-gap: 10px;
+  }
+  
+  .instagram-gallery .grid-item {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .instagram-gallery .grid-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .instagram-gallery .grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  

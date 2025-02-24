@@ -1,0 +1,8 @@
+<div class="instagram-gallery">
+    <div class="grid">
+      <div class="grid-item" *ngFor="let post of posts" (click)="openPost(post.permalink)">
+        <img [src]="post.media_url" alt="Instagram Post">
+      </div>
+    </div>
+  </div>
+  

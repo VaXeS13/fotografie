@@ -1,0 +1,191 @@
+/* Kontener menu - z ustawieniem na flexbox, aby logo było po lewej, a menu po prawej */
+.menu-container {
+    display: flex;
+    justify-content: space-between;  /* Rozmieszcza logo po lewej, a menu po prawej */
+    align-items: center;  /* Wyrównanie elementów w pionie */
+    background-color: #2c3e50;  /* Tło menu */
+    
+    padding: 5px 20px;  /* Padding dla całego kontenera */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+   
+
+  /* Logo - ustawiamy rozmiar logo i odstępy */
+  .logo img {
+    height: 115px;  /* Wysokość logo */
+    width: auto;  /* Szerokość logo dopasowuje się automatycznie */
+  }
+  
+  /* Styl dla menu (przesunięcie menu do prawej strony) */
+  .right-menu {
+    margin-left: auto;  /* Wypycha menu na prawą stronę */
+  }
+
+  /* Stylowanie ogólne dla menu */
+  :host ::ng-deep .p-menubar {
+    background-color: #2c3e50;  /* Ciemne tło */
+    padding: 25px 20px;
+  }
+  
+  /* Styl dla elementów menu */
+  :host ::ng-deep .p-menubar .p-menuitem-link {
+    color: #2c3e50;  /* Jasny tekst */
+    font-size: 18px;  /* Większy rozmiar czcionki */
+    font-weight: 500;
+    padding: 15px 30px;  /* Większe odstępy */
+    text-transform: uppercase;  /* Małe litery zamieniamy na duże */
+    border-radius: 6px;
+    transition: all 500ms ease;  /* Płynna animacja na hover */
+  }
+  :host ::ng-deep .p-menubar{
+    border: none;
+  }
+  /* Efekt hover */
+  :host ::ng-deep .p-menubar .p-menuitem-link:hover {
+    background-color: #3498db;  /* Niebieskie tło przy hover */
+    color: #fff;  /* Biały tekst */
+    cursor: pointer;
+    transform: scale(1.05);  /* Powiększenie elementu */
+  }
+  
+  /* Styl aktywnego elementu */
+  :host ::ng-deep .p-menubar .p-menuitem-link.p-highlight {
+    background-color: #2980b9;  /* Ciemniejszy niebieski dla aktywnego elementu */
+    color: #fff;  /* Biały tekst */
+    font-weight: 600;
+  }
+
+  /* Ikony w menu */
+  :host ::ng-deep .p-menuitem-icon {
+    color: #f39c12;  /* Złoty kolor ikon */
+    margin-right: 10px;  /* Odstęp od tekstu */
+    transition: color 0.3s ease;
+  }
+  
+  /* Efekt hover na ikonach */
+  :host ::ng-deep .p-menubar .p-menuitem-link:hover .p-menuitem-icon {
+    color: #fff;  /* Zmiana koloru ikon na biały przy hover */
+  }
+  :host ::ng-deep .p-menubar-item-content {
+    color: #fff;
+  } 
+  /* Responsywność - na urządzeniach mobilnych */
+  @media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column; /* Menu w kolumnie */
+        align-items: flex-start;
+        padding: 10px;
+    }
+    :host ::ng-deep .pi-social{
+      margin: 0 auto;
+      font-size: x-small;
+    }
+
+    .social{
+      margin: 0 auto;
+    }
+  
+    .right-menu {
+        width: 100%;
+    }
+
+    :host ::ng-deep .p-menubar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    :host ::ng-deep .p-menubar .p-menuitem-link {
+        font-size: 14px; /* Mniejsza czcionka */
+        padding: 8px 10px;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    :host ::ng-deep  .p-menubar-root-list{
+      background-color: #2c3e50 !important;
+      width: 100%;
+      left: 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1020px){
+  :host ::ng-deep  .p-menubar-root-list{
+    background-color: #2c3e50 !important;
+    
+    width: 250px;
+    left: -150px;
+  }
+
+  .social{
+    margin: 0 auto;
+  }
+}
+
+  :host ::ng-deep .pi-social{
+    margin-left: 15px;
+    color: white;
+    font-size: xx-large;
+  }
+
+
+/* Zmiana koloru ikon */
+:host ::ng-deep .p-menubar .p-menubar-submenu .p-menubar-item-label  {
+    color: #2c3e50 !important;
+}
+
+.p-menuitem-link {
+  color: white !important;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.p-menuitem-link:hover {
+  background-color: #555 !important;
+  color: white !important;
+}
+
+/* 🔥 Aktywny element */
+.p-menuitem-link.active-menu-item {
+  background-color: #007bff !important;  /* Niebieskie tło */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Poprawka dla aktywnego elementu */
+:host ::ng-deep .p-menubar .p-menuitem-link.active-menu-item {
+  background-color: #2980b9 !important; /* Ciemniejszy niebieski */
+  color: white !important;
+}
+
+
+
+@media (max-width: 1100px){
+  :host ::ng-deep .pi-social{
+    margin-left: 15px;
+    color: white;
+    font-size: x-large;
+
+  }
+}
+@media (min-width: 1200px){
+  :host ::ng-deep .social{
+    margin-left: 50px;    
+  }
+}
+
+@media (min-width: 1600px){
+  :host ::ng-deep .social{
+    margin-left: 100px;    
+  }
+}
+

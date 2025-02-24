@@ -1,0 +1,25 @@
+<div class="card gallery-container">
+
+
+    <div class="gallery">
+        <div class="gallery-item" *ngFor="let image of images; let i = index" (click)="openOverlay(i)">
+          <img [src]="image.itemImageSrc" [alt]="image.alt" [title]="image.title">
+        </div>
+      </div>
+  
+      <!-- Overlay (lightbox) z animacją -->
+      <div class="overlay" *ngIf="displayOverlay" (click)="closeOverlay()" [@overlayAnimation]>
+        <!-- Przycisk zamknięcia -->
+        <span class="close" (click)="closeOverlay($event)">&times;</span>
+        <div class="overlay-content" (click)="$event.stopPropagation()">
+          <!-- Przycisk poprzedniego zdjęcia -->
+          <button class="nav-btn prev" (click)="prevImage($event)">&#10094;</button>
+          <!-- Wyświetlany obraz -->
+          <img [src]="images[currentIndex].itemImageSrc" 
+               [alt]="images[currentIndex].alt" 
+               [title]="images[currentIndex].title">
+          <!-- Przycisk następnego zdjęcia -->
+          <button class="nav-btn next" (click)="nextImage($event)">&#10095;</button>
+        </div>
+      </div>
+</div>
